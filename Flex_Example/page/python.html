@@ -1,0 +1,281 @@
+<title id="title">🐍 Python 導讀</title>
+
+<!-- 內容注入點 -->
+<body id="body">
+<div class="ts-text mag-20px">
+    說到 Python，最先想到的就是它簡潔直觀的語言特性，且得利於周邊模組的活躍開發，應用範圍也是五花八門，Python 官方教學文檔是這麼描述它的：
+</div>
+<div class="ts-segment is-elevated is-positive is-bottom-indicated mag-20px">
+    <div class="ts-quote is-secondary">
+        Python 優雅的語法和動態型別，結合其直譯特性，使它成為眾多領域和大多數平臺上，撰寫腳本和快速開發應用程式的理想語言。
+        <br>
+        Python 官網也提供了許多自由且免費的第三方 Python 模組、程式與工具、以及額外說明文件，有興趣的使用者，可在官網上找到相關的發行版本與連結網址。
+        <br>
+        使用 C 或 C++（或其他可被 C 呼叫的程式語言），可以很容易在 Python 直譯器內新增功能函式及資料型別。同時，對可讓使用者自製功能的應用程式來說，Python 也適合作為其擴充用界面語言 (extension language)。
+        
+        <div class="cite ts-text is-end-aligned">
+            <a href="https://docs.python.org/zh-tw/3/tutorial/index.html" target="_blank" class="ts-text is-undecorated is-external-link">
+                Python Documentation
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="ts-text mag-20px">
+    但是，代價是什麼呢？ <span class="ts-text is-deleted is-secondary">這一切</span><br>
+    這層亮麗的糖衣<span class="ts-text is-secondary is-small">(確實 有很多甜甜的語法糖)</span>，是以執行速度換來的，可以說是程式語言的 RGB 電競烏龜了，不過誰說烏龜不能坐車<span class="ts-text is-secondary">(C++)</span>啊？
+</div>
+
+<div class="ts-image is-covered mag-20px">
+    <img src="https://hackmd.io/_uploads/HyOJ3CRPT.jpg" style="max-width: 500px;">
+    <div class="ts-mask ts-content is-center-aligned is-bottom" style="color: #FFF;">
+        <div class="ts-header is-center-aligned">
+            來自 Microsoft 影像建立工具
+        </div>
+        <a href="https://lurl.cc/sZti56" target="_blank" class="ts-text is-undecorated is-external-link">
+            https://lurl.cc/sZti56
+        </a>
+    </div>
+</div>
+
+<div class="ts-text mag-20px">
+    好 上面哩哩摳摳文字很多我知道，估計也沒誰會認真看完。<br>
+    在進入正題前，還是想提一下：
+</div>
+
+<div class="ts-segment is-elevated is-warning is-bottom-indicated mag-20px pad-left-30px">
+        <div class="ts-list is-unordered">
+            <div class="item">學程式語言先別急著戰誰優誰劣，一切端看需求。</div>
+            <div class="item">兼聽則明，偏信則暗，學習亦是。</div>
+        </div>
+</div>
+
+<div class="ts-text mag-20px">
+    推薦將 Python 當興趣學，或許這之中學到的知識，會在撰寫其他語言時帶來不同觀點與解法。<br>
+    本篇文章會介紹一些刷題時會用到的 Python 程式碼。
+</div>
+
+<div class="big-divider"></div>
+
+<div class="ts-header is-heavy is-huge is-start-icon">
+    <i class="ts-icon is-hashtag-icon"></i>
+    <div id="part">C++ 與 Python</div>
+</div>
+
+<div class="ts-text mag-20px">
+    讀相關科系的學生，不是已經學過 C++ 就是在學的路上。<br>
+    而本篇要介紹的 Python 跟它真的是完全相反：
+</div>
+
+<div class="ts-box is-collapsed mag-20px">
+    <table class="ts-table is-horizontally-padded is-collapsed">
+        <thead>
+            <tr>
+                <th><span class="ts-icon is-secondary is-spinning is-gear-icon"></span></th>
+                <th>轉譯方式</th>
+                <th>型別宣告</th>
+                <th>型別系統</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>C++</td>
+                <td>編譯</td>
+                <td>靜態</td>
+                <td>弱型別</td>
+            </tr>
+            <tr>
+                <td>Python</td>
+                <td>直譯</td>
+                <td>動態</td>
+                <td>強型別</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="ts-text mag-20px">
+    舉個例子，今天有段程式是這樣的：
+</div>
+
+<div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px pad-left-30px">
+    <div class="ts-list is-unordered">
+        <div class="ts-header is-big is-start-icon">
+            <i class="ts-icon is-at-icon" style="font-size: 24px;"></i>
+            <span>型別宣告</span>
+        </div>
+    </div>
+    
+    <div class="ts-text mag-20px">
+        C++
+    </div>
+    <div class="mag-20px">
+        <!-- '<' = &lt; -->
+        <!-- '>' = &gt; -->
+        <div class="ts-text is-code">
+            int n = 123;<br>
+            string s = "456";<br>
+            cout &lt;&lt; n + s;
+        </div>
+    </div>
+
+    <div class="ts-text is-secondary mag-20px">
+        因為 C++ 是靜態語言，IDE 會提示兩者不能相加，因為型態不同。
+    </div>
+
+    <div class="ts-text mag-20px">
+        Python
+    </div>
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            n = 123<br>
+            s = '456'<br>
+            print(n + s)
+        </div>
+    </div>
+    <div class="ts-text is-secondary mag-20px">
+        而 Python 則不會提示，但在執行到 print 指令時報錯。
+    </div>
+
+
+    <div class="ts-list is-unordered">
+        <div class="ts-header is-big is-start-icon">
+            <i class="ts-icon is-at-icon" style="font-size: 24px;"></i>
+            <span>型別系統</span>
+        </div>
+    </div>
+    
+    <div class="ts-text mag-20px">
+        C++
+    </div>
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            int n = 1;<br>
+            double d = 1.5;<br>
+            cout &lt;&lt; n + d;
+        </div>
+    </div>
+
+    <div class="ts-text is-secondary mag-20px">
+        C++ 具有隱性轉換特性，於是會得到 2.5。
+    </div>
+
+    <div class="ts-text mag-20px">
+        Python
+    </div>
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            n = 1<br>
+            d = 1.5<br>
+            print(n + d)
+        </div>
+    </div>
+    <div class="ts-text is-secondary mag-20px">
+        Python 也會得到 2.5，但這是因為它是動態語言，n、d 兩變數都被推斷成浮點數型態。
+    </div>
+</div>
+
+<div class="big-divider"></div>
+
+<div class="ts-header is-heavy is-huge is-start-icon">
+    <i class="ts-icon is-hashtag-icon"></i>
+    <div id="part">多行輸入</div>
+</div>
+
+<div class="ts-text mag-20px">
+    在 C++ 要處理多筆資料輸入，你會看到：
+</div>
+<div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
+    <!-- Code style -->
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            int n<br>
+            while(cin &gt;&gt; n){<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;// do something...<br>
+            }
+        </div>
+    </div>
+    <!-- Code style -->
+</div>
+<div class="ts-text mag-20px">
+    而在 Python 除了用 if 來判斷是否跳出迴圈，你還可以利用例外處裡：
+</div>
+<div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
+    <!-- Code style -->
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            while 1:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;try:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = int(input())<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# do something...<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;except EOFError: break
+        </div>
+    </div>
+    <!-- Code style -->
+</div>
+<div class="ts-text is-secondary mag-20px">
+    EOFError 是指讀取的檔案到結尾處了。 通常解題系統餵資料的方式就是用檔案來餵，所以可以利用這點做到多行輸入。
+</div>
+
+
+<div class="big-divider"></div>
+
+
+<div class="ts-header is-heavy is-huge is-start-icon">
+    <i class="ts-icon is-hashtag-icon"></i>
+    <div id="part">格式化字串 (f-string)</div>
+</div>
+
+<div class="ts-text mag-20px">
+    有輸入，自然也有輸出的介紹，<br>
+    這邊介紹的是 Python 3.6 開始支援的一種字串格式化方式，同時也是我最常用的方式。
+</div>
+
+<div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            age = 5<br>
+            print(f'The kid is {age} years old.')
+        </div>
+    </div>
+    <div class="ts-text is-secondary mag-20px">
+        <span class="ts-text is-key">💻 Output:</span>
+        The kid is 5 years old.
+    </div>
+</div>
+
+<div class="ts-text mag-20px">
+    沒錯，就是簡單的用「f ' '」包起來，想要串上變數時就用 { } 把變數名包起來。<br>
+    要注意的是，若裡面要再包一串字串，裡外兩個引號不能重複，外層是單引號內層就要雙引號。
+</div>
+
+<div class="ts-segment is-elevated is-negative is-bottom-indicated mag-20px">
+    <span class="ts-text mag-20px">❌</span>
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            str = f'Show 'string'.'
+        </div>
+    </div>
+</div>
+<div class="ts-segment is-elevated is-positive is-bottom-indicated mag-20px">
+    <span class="ts-text mag-20px">⭕</span>
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            str = f'Show "string".'
+        </div>
+    </div>
+
+    <span class="ts-text">or</span>
+
+    <div class="mag-20px">
+        <div class="ts-text is-code">
+            str = f"Show 'string'."
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+<!-- 內容注入尾 -->

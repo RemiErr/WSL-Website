@@ -1,5 +1,4 @@
 /* 初期切版用 */
-
 .flex{
     display: flex;
 }
@@ -35,8 +34,11 @@
 .pad-10px{
     padding: 10px;
 }
-.mag-20px{
-    margin: 20px;
+.pad-20px{
+    padding: 20px;
+}
+.pad-30px{
+    padding: 30px;
 }
 
 .pad-left-3px{
@@ -48,6 +50,12 @@
 .pad-left-10px{
     padding-left: 10px;
 }
+.pad-left-20px{
+    padding-left: 20px;
+}
+.pad-left-30px{
+    padding-left: 30px;
+}
 
 .pad-right-3px{
     padding-right: 3px;
@@ -58,12 +66,23 @@
 .pad-right-10px{
     padding-right: 10px;
 }
+.pad-right-20px{
+    padding-right: 20px;
+}
+.pad-right-30px{
+    padding-right: 30px;
+}
+
+.mag-20px{
+    margin: 20px;
+}
 
 /* 置中分隔線 */
 .divider{
     left: 10%;
     width: 80%;
     height: 1px;
+    display: block;
     background-color: rgb(40, 40, 40, 0.5);
 }
 .big-divider{
@@ -73,4 +92,20 @@
     margin: 1%;
     margin-bottom: 1%;
     background-color: rgb(40, 40, 40, 0.3);
+}
+
+/* 繼承上層樣式 */
+.inherit{
+    all: inherit;
+    /* font-size: inherit;
+    color: inherit;
+    background-color: inherit; */
+}
+
+/* Tocas UI Custom */
+.ts-segment[class*=-indicated].is-primary {
+    --ts-indicator-color: var(--ts-primary-500);
+}
+.is-code{
+    font-size: 18px !important;
 }

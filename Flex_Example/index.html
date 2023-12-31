@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex Example</title>
 
+    <!-- Prototype JavaScript Framework -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.js" integrity="sha512-9Sxlz9DC2Z4SewnMV2jzeYr/N0psEmZRQAUk5cUpE3fLY2Ml32VsprA9PsKj+kT7OGUn+VZRstS+Z0bbtpH46g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -21,14 +24,16 @@
     <!-- PyScript -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
 
+    
+    <script src="script/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/flex.css">
     <link rel="stylesheet" href="css/box.css">
+
     <style>
         *{
             /* 切版 Debug 用 */
             /* border: 1px solid rgba(200, 15, 15, 0.5); */
-
         }
     </style>
 </head>
@@ -47,52 +52,61 @@
 
         <!-- 選項 -->
         <div class="flex1 menu-list">
-
             <div class="ts-menu">
+                <!-- Space -->
+                <div class="u-spaced"></div>
+
                 <!-- 當前文章段落 begin -->
-                <div class="pad-left-10px">
-                    <i class="ts-icon is-tag-icon"></i>
+                <div>
+                    <i class="ts-icon is-spaced is-tag-icon"></i>
                     <span>段落</span>
                 </div>
                 <div class="divider"></div>
 
-                <div class="item" onclick="setPos(0)">世界 啟動</div>
-                <div class="item" onclick="setPos(470)">彩色電視機</div>
-                <div class="item" onclick="setPos(770)">理 ♂ 哲 ♂ 學</div>
+                <div id="inner_part">
+                    <!-- <div class="item" onclick="setPos(0)">世界 啟動</div>
+                    <div class="item" onclick="setPos(400)">彩色電視機</div>
+                    <div class="item" onclick="setPos(770)">理 ♂ 哲 ♂ 學</div> -->
+                </div>
                 <!-- 當前文章段落 end -->
 
                 <!-- Space -->
-                <div style="height: 20px;"></div>
+                <div class="u-spaced"></div>
 
                 <!-- 其他文章 begin -->
-                <div class="pad-left-10px">
-                    <i class="ts-icon is-book-icon"></i> 
+                <div>
+                    <i class="ts-icon is-spaced is-book-icon"></i> 
                     <span>文章</span>
                 </div>
                 <div class="divider"></div>
 
-                <div class="flex has-sub">
-                    <div class="item">Python：從入門到入土</div>
-                    <div class="flex colnum sub">
-                        <div class="item">Hello World!</div>
-                        <div class="item">學會這招讓你愛上蛇蛇</div>
-                        <div class="item">掌握三大輸入法則</div>
-                        <div class="item">愛會消失對不對？</div>
-                        <div class="item">由愛生恨，蛇黑養成班</div>
-                    </div>
-                </div>
 
-                <div class="flex has-sub">
-                    <div class="item">快打 C++：現代模式</div>
-                    <div class="flex colnum sub">
-                        <div class="item">⬇🔵　⬇🔵🔵　⬇↘➡🔴</div>
-                        <div class="item">如何當個快樂 DI 人？</div>
-                        <div class="item">Library 123，立回好簡單！</div>
+                <div id="inner_sub">
+
+                    <div class="flex has-sub">
+                        <div class="item" onclick="url('page/python.html')">Python：從入門到入土</div>
+                        <div class="flex colnum sub">
+                            <div class="item">Hello World!</div>
+                            <div class="item">學會這招讓你愛上蛇蛇</div>
+                            <div class="item">掌握三大輸入法則</div>
+                            <div class="item">愛會消失對不對？</div>
+                            <div class="item">由愛生恨，蛇黑養成班</div>
+                        </div>
                     </div>
+
+                    <div class="flex has-sub">
+                        <div class="item">快打 C++：現代模式</div>
+                        <div class="flex colnum sub">
+                            <div class="item">⬇🔵　⬇🔵🔵　⬇↘➡🔴</div>
+                            <div class="item">如何當個快樂 DI 人？</div>
+                            <div class="item">Library 123，立回好簡單！</div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- 其他文章 end -->
 
-                
+
             </div>
         </div>
 
@@ -104,99 +118,24 @@
     <!-- 主內容 begin -->
     <div class="flex flex1 colnum">
         <!-- 頭部 -->
-        <div class="head-bar">
-    
+        <div class="flex head-bar">
+            <div class="inherit" id="inner_head"></div>
         </div>
 
         <!-- 內容 -->
         <div class="flex1 content content-auto-height">
             <!-- 捲動時取得位置 -->
-            <div class="text ts-container is-fluid is-padded" id="idd" onscroll="getPos()">
+            <div class="text ts-container is-fluid is-padded" id="inner_text">
 
                 <!-- 內容注入點 -->
-
-                <!-- Title style -->
-                <div class="ts-header is-heavy is-huge is-start-icon" onclick="getPos()">
-                    <i class="ts-icon is-hashtag-icon"></i>
-                    世界由此開始
-                </div>
-                <!-- Title style -->
-
-                <!-- Content style -->
-                <div class="ts-text mag-20px">
-                    時權古；世風任光候的亞們光作病花。企當獲，言成的世老為以黨。學認不別！海日可結個；<br>
-                    計用經，轉或生可爾，法中連客族色，導如的相去著任來中這家我們新為二程步一裡陸美演國準內臺花又本入的意樂轉是洋書這這中如如要益特舉學有價！算答細代不我飯說果雖愛她的城，度外分民機，的外境活充度可的藝物言如，親停委在紀不水是十定要，術事職北選集時奇風！紅單驗外然不愛的才下友成讀、數所上心，論式問家人？取世期可海的態男料由以的。服標到全在務常態在聽長。更日美近相認龍？<br>
-                    推只部生演線環對候到王、故展象北舞況李市明異，要別晚四觀天無變？<br>
-                    嗎大通最工快常。臉教行生學基改作運不確教兒眾數師西往外，量投樹嚴音毛成……指士白用樣今和教減提，面常受車明考五公身後一也家送有道克！一力金，年方不：望三過加家家面，大跑導學多帶近女臺位。達傳道千我甚不個：一的金長心眼的發修時的反展所物廣；爾狀分部界的。<br>
-                    西黃本結話辦有；笑青精系唱公半臺國在間了就氣美安步發任字意於金！西學強人都興口師溫難運？<br>
-                </div>
-                <!-- Content style -->
-
-                <div class="big-divider"></div>
-
-                <div class="ts-header is-heavy is-huge is-start-icon" onclick="getPos()">
-                    <i class="ts-icon is-hashtag-icon"></i>
-                    16比9 寬螢幕彩視，彩色技術的新貢獻！
-                </div>
-
-                <!-- Image style -->
-                <div class="ts-image is-16-by-9 is-covered mag-20px">
-                    <img src="image/80.png" style="max-width: 1600px;">
-                    <div class="ts-mask ts-content is-center-aligned is-bottom" style="color: #FFF;">
-                        <div class="ts-header is-center-aligned">
-                            彩色 炫酷 勁爆
-                        </div>
-                        時代的新寵兒
-                    </div>
-                </div>
-                <!-- Image style -->
-
-                <div class="big-divider"></div>
-
-                <div class="ts-header is-heavy is-huge is-start-icon" onclick="getPos()">
-                    <i class="ts-icon is-hashtag-icon"></i>
-                    114514 哼啊啊啊！！！
-                </div>
-
-                <!-- Quote style -->
-                <div class="ts-segment is-positive is-top-indicated mag-20px">
-                    <div class="ts-quote is-secondary">
-                        這麼臭的標題有存在的必要嗎？(惱)<br>
-                        臭豆腐<br>
-                        超導呼
-                    </div>
-                </div>
-                <!-- Quote style -->
-
-                <!-- Table style -->
-                <div class="ts-box is-collapsed mag-20px">
-                    <table class="ts-table is-collapsed">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>🩲</th>
-                                <th>🍑</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>♂</td>
-                                <td>野獸先輩</td>
-                                <td>壓力瑪斯捏</td>
-                            </tr>
-                            <tr>
-                                <td>♂</td>
-                                <td>森之妖精</td>
-                                <td>哲♂學</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Table style -->
-
+                <script>
+                    url('page/demo.html');
+                </script>
                 <!-- 內容注入尾 -->
 
+                
             </div>
+
         </div>
     </div>
     <!-- 主內容 end -->
@@ -211,21 +150,19 @@
 
     <!-- JavaScript -->
     <script>
-    /*
-        Get Scrollbar position
-        https://www.jiyik.com/tm/xwzj/web_3130.html
-    */
+    // let el = document.getElementById("inner_part");
+    // el.innerHTML = '<div class="item">INNER HTML</div>';
 
-    function getPos() {
-            let idd_pos = document.getElementById("idd");
-            console.log('y: ' + idd_pos.scrollTop);
-    };
-
-    // 設定卷軸位置
-    function setPos(y){
-        document.getElementById("idd").scrollTop = y;
-    };
+    // el = document.getElementById("inner_sub");
+    // el.innerHTML = `<div class="flex has-sub">
+    //                 <div class="item">INNER SUB</div>
+    //                 <div class="flex colnum sub">
+    //                 <div class="item">⬇🔵　⬇🔵🔵　⬇↘➡🔴</div>
+    //                 <div class="item">如何當個快樂 DI 人？</div>
+    //                 </div>
+    //                 </div>`;
     </script>
+
 
 
     <!-- PyScript -->
