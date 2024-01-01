@@ -91,6 +91,7 @@
     height: 1%;
     margin: 1%;
     margin-bottom: 1%;
+    display: block;
     background-color: rgb(40, 40, 40, 0.3);
 }
 

@@ -21,7 +21,6 @@ const DOC_DOM = (u='') => fetch(u||urlf)
 // 取得檔案的純文字資料
 // const DOC_TEXT = (u='') => fetch(u||urlf).then(e => e.text());
 
-
 /* Get Scrollbar position */
 // https://www.jiyik.com/tm/xwzj/web_3130.html
 
@@ -48,6 +47,9 @@ function url(path){
     setTitle();
     setContent();
     setMenuPart();
+    // 延遲觸發 Google 語法著色器
+    setTimeout(PR.prettyPrint, 800);
+    setTimeout(setPos(0), 850);
 }
 
 // 更改頂部標題
@@ -84,9 +86,6 @@ function setMenuPart(){
         });
     });
 }
-
-
-
 
 
 

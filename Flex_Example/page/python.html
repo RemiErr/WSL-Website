@@ -27,7 +27,7 @@
 </div>
 
 <div class="ts-image is-covered mag-20px">
-    <img src="https://hackmd.io/_uploads/HyOJ3CRPT.jpg" style="max-width: 500px;">
+    <img src="image/fa0.jpg" style="max-width: 500px;">
     <div class="ts-mask ts-content is-center-aligned is-bottom" style="color: #FFF;">
         <div class="ts-header is-center-aligned">
             來自 Microsoft 影像建立工具
@@ -109,15 +109,14 @@
     <div class="ts-text mag-20px">
         C++
     </div>
-    <div class="mag-20px">
-        <!-- '<' = &lt; -->
-        <!-- '>' = &gt; -->
-        <div class="ts-text is-code">
-            int n = 123;<br>
-            string s = "456";<br>
-            cout &lt;&lt; n + s;
-        </div>
-    </div>
+<div class="mag-20px">
+    <!-- '<' = &lt; -->
+    <!-- '>' = &gt; -->
+<pre class="prettyprint linenums">
+int n = 123;
+string s = "456";
+cout &lt;&lt; n + s;</pre>
+</div>
 
     <div class="ts-text is-secondary mag-20px">
         因為 C++ 是靜態語言，IDE 會提示兩者不能相加，因為型態不同。
@@ -126,17 +125,17 @@
     <div class="ts-text mag-20px">
         Python
     </div>
-    <div class="mag-20px">
-        <div class="ts-text is-code">
-            n = 123<br>
-            s = '456'<br>
-            print(n + s)
-        </div>
-    </div>
+<div class="mag-20px">
+<pre class="prettyprint linenums">
+n = 123
+s = '456'
+print(n + s)</pre>
+</div>
     <div class="ts-text is-secondary mag-20px">
         而 Python 則不會提示，但在執行到 print 指令時報錯。
     </div>
 
+<div class="ts-divider pad-10px"></div>
 
     <div class="ts-list is-unordered">
         <div class="ts-header is-big is-start-icon">
@@ -148,13 +147,12 @@
     <div class="ts-text mag-20px">
         C++
     </div>
-    <div class="mag-20px">
-        <div class="ts-text is-code">
-            int n = 1;<br>
-            double d = 1.5;<br>
-            cout &lt;&lt; n + d;
-        </div>
-    </div>
+<div class="mag-20px">
+<pre class="prettyprint linenums">
+int n = 1;
+double d = 1.5;
+cout &lt;&lt; n + d;</pre>
+</div>
 
     <div class="ts-text is-secondary mag-20px">
         C++ 具有隱性轉換特性，於是會得到 2.5。
@@ -163,13 +161,12 @@
     <div class="ts-text mag-20px">
         Python
     </div>
-    <div class="mag-20px">
-        <div class="ts-text is-code">
-            n = 1<br>
-            d = 1.5<br>
-            print(n + d)
-        </div>
-    </div>
+<div class="mag-20px">
+<pre class="prettyprint linenums">
+n = 1
+d = 1.5
+print(n + d)</pre>
+</div>
     <div class="ts-text is-secondary mag-20px">
         Python 也會得到 2.5，但這是因為它是動態語言，n、d 兩變數都被推斷成浮點數型態。
     </div>
@@ -186,35 +183,33 @@
     在 C++ 要處理多筆資料輸入，你會看到：
 </div>
 <div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
-    <!-- Code style -->
-    <div class="mag-20px">
-        <div class="ts-text is-code">
-            int n<br>
-            while(cin &gt;&gt; n){<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;// do something...<br>
-            }
-        </div>
-    </div>
-    <!-- Code style -->
+<!-- Code style -->
+<div class="mag-20px">
+<pre class="prettyprint linenums">
+int n
+while(cin &gt;&gt; n){
+    // do something...
+}</pre>
+</div>
+<!-- Code style -->
 </div>
 <div class="ts-text mag-20px">
     而在 Python 除了用 if 來判斷是否跳出迴圈，你還可以利用例外處裡：
 </div>
 <div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
-    <!-- Code style -->
-    <div class="mag-20px">
-        <div class="ts-text is-code">
-            while 1:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;try:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = int(input())<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# do something...<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;except EOFError: break
-        </div>
-    </div>
-    <!-- Code style -->
+<!-- Code style -->
+<div class="mag-20px">
+<pre class="prettyprint linenums">
+while 1:
+    try:
+        n = int(input())
+        # do something...
+    except EOFError: break</pre>
 </div>
-<div class="ts-text is-secondary mag-20px">
-    EOFError 是指讀取的檔案到結尾處了。 通常解題系統餵資料的方式就是用檔案來餵，所以可以利用這點做到多行輸入。
+<!-- Code style -->
+    <div class="ts-text is-secondary mag-20px">
+        EOFError 是指讀取的檔案到結尾處了。 通常解題系統餵資料的方式就是用檔案來餵，所以可以利用這點做到多行輸入。
+    </div>
 </div>
 
 
@@ -233,10 +228,9 @@
 
 <div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
     <div class="mag-20px">
-        <div class="ts-text is-code">
-            age = 5<br>
-            print(f'The kid is {age} years old.')
-        </div>
+<pre class="prettyprint linenums">
+age = 5
+print(f'The kid is {age} years old.')</pre>
     </div>
     <div class="ts-text is-secondary mag-20px">
         <span class="ts-text is-key">💻 Output:</span>
@@ -250,32 +244,27 @@
 </div>
 
 <div class="ts-segment is-elevated is-negative is-bottom-indicated mag-20px">
-    <span class="ts-text mag-20px">❌</span>
+<span class="ts-text mag-20px">❌</span>
     <div class="mag-20px">
-        <div class="ts-text is-code">
-            str = f'Show 'string'.'
-        </div>
+<pre class="prettyprint linenums">
+str = f'Show 'string'.'</pre>
     </div>
 </div>
+
 <div class="ts-segment is-elevated is-positive is-bottom-indicated mag-20px">
     <span class="ts-text mag-20px">⭕</span>
     <div class="mag-20px">
-        <div class="ts-text is-code">
-            str = f'Show "string".'
-        </div>
+<pre class="prettyprint linenums">
+str = f'Show "string".'</pre>
     </div>
 
     <span class="ts-text">or</span>
 
     <div class="mag-20px">
-        <div class="ts-text is-code">
-            str = f"Show 'string'."
-        </div>
+<pre class="prettyprint linenums">
+str = f"Show 'string'."</pre>
     </div>
 </div>
-
-
-
 
 </body>
 <!-- 內容注入尾 -->

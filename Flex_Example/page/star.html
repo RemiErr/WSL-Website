@@ -1,0 +1,257 @@
+<title id="title">🌟 Python 摘星路</title>
+
+<!-- 內容注入點 -->
+<body id="body">
+<div class="ts-text mag-20px">
+    本文接續著<span onclick="url('page/python.html')" class="ts-text is-link">上一篇</span>，稍微來講講題目解法。
+</div>
+<div class="ts-image is-covered mag-20px">
+    <img src="image/cdf.jpg" style="max-width: 500px;">
+    <div class="ts-mask ts-content is-center-aligned is-bottom" style="color: #FFF;">
+        <div class="ts-header is-center-aligned">
+            來自 Microsoft 影像建立工具
+        </div>
+        <a href="https://lurl.cc/PuJNqd" target="_blank" class="ts-text is-undecorated is-external-link">
+            https://lurl.cc/PuJNqd
+        </a>
+    </div>
+</div>
+
+<div class="big-divider"></div>
+
+<body id="body">
+    <div class="ts-header is-heavy is-huge is-start-icon">
+        <i class="ts-icon is-hashtag-icon"></i>
+        <div id="part">UVA 490 Rotating Sentences</div>
+    </div>
+
+    <div class="ts-text mag-20px">
+        這題，我們這組請之前從未碰過 Python 的組員來實作，並附上註解。<br>
+        同時會附上 C++ 版本的程式碼，解題方向相同，但可以試著感受看看不同程式碼的風格特性。
+    </div>
+
+    <div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px pad-left-30px">
+        <div class="ts-list is-unordered">
+            <div class="ts-header is-big is-start-icon">
+                <i class="ts-icon is-at-icon" style="font-size: 24px;"></i>
+                <span>題目</span>
+            </div>
+        </div>
+
+        <div class="ts-image is-centered is-covered mag-20px">
+            <img src="https://hackmd.io/_uploads/r1J-RWxd6.png">
+            <div class="ts-text is-secondary is-end-aligned">擷取自:
+                <a href="https://zerojudge.tw/ShowProblem?problemid=c045" target="_blank" class="ts-text is-undecorated is-external-link">
+                    https://zerojudge.tw/ShowProblem?problemid=c045
+                </a>
+            </div>
+        </div>
+
+        <div class="ts-divider pad-10px"></div>
+        <div class="ts-list is-unordered">
+            <div class="ts-header is-big is-start-icon">
+                <i class="ts-icon is-at-icon" style="font-size: 24px;"></i>
+                <span>解題方向</span>
+            </div>
+        </div>
+
+        <div class="ts-text mag-20px">
+            題目要求我們將兩字串做轉置，那是不是可以反過來想？<br>
+            把兩字串放入一個 x y 格式的陣列後，一起輸出。
+        </div>
+
+        <div class="ts-divider pad-10px"></div>
+        <div class="ts-list is-unordered">
+            <div class="ts-header is-big is-start-icon">
+                <i class="ts-icon is-at-icon" style="font-size: 24px;"></i>
+                <span>程式碼</span>
+            </div>
+        </div>
+
+        <span class="ts-text is-code mag-20px">
+            <i class="ts-icon is-python-icon pad-5px pad-right-10px"></i>
+            Python
+        </span>
+        <div class="mag-20px">
+<pre class="prettyprint linenums">
+# 宣告變數 str，並轉換其資料型態為 str，使用 input() 讓使用者輸入其內容。
+str1 = str(input("input first line  : "))
+str2 = str(input("input second line : "))
+
+# 宣告變數 longlen，並使用了 max() 來取出最大數值，而 len() 是取得字串長度。
+longlen = max(len(str1), len(str2))
+
+# 宣告變數 n，其內容為 0 ，其資料型態會被判斷成 int。
+n = 0
+
+# 宣告名為output的陣列。
+output = ['x', 'y']
+
+# 迴圈開始後，n 會從 0 開始，一直遞增到 longlen - 1，n 會持續在下列動作執行完之後進行 +1
+for n in range(longlen) :
+    
+# 當 n 目前的值比 str1 的字串長度小的時候，代表 n 還沒跑出字串的範圍外，所以執行下列動作
+    if n &lt; len(str1):
+    # 把目前第 n 個字串的字符放入 output 陣列的第一格
+        output[0] = str1[n]
+    else: # 當 n 跑出字串範圍時
+    # 讓空格放入 output 陣列的第一格
+    # 若沒有執行這項動作，output陣列的第一格會持續保持在str1最後一個字符
+        output[0] = ' '
+
+    if n &lt; len(str2):
+        output[1] = str2[n]
+    else:
+        output[1] = ' '
+
+# 這裡進行輸出，內容為 "output 陣列的第二格" "output 陣列的第一格"
+    print(output[1] + output[0])</pre>
+        </div>
+
+        <br>
+        <div class="ts-divider pad-10px"></div>
+
+        <span class="ts-text is-code mag-20px">
+            <i class="ts-icon is-cuttlefish-icon pad-5px pad-right-10px"></i>
+            C++
+        </span>
+        <div class="mag-20px">
+<pre class="prettyprint linenums">
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string str1, str2;
+
+    cout &lt;&lt; "input first line  : ";
+    getline(cin, str1);
+
+    cout &lt;&lt; "input second line : ";
+    getline(cin, str2);
+
+    int longlen = max(str1.length(), str2.length());
+
+    int n = 0;
+    char output[2] = {'x', 'y'};
+
+    for (n = 0; n &lt; longlen; ++n) {
+        if (n &lt; str1.length()) {
+            output[0] = str1[n];
+        } else {
+            output[0] = ' ';
+        }
+
+        if (n &lt; str2.length()) {
+            output[1] = str2[n];
+        } else {
+            output[1] = ' ';
+        }
+
+        cout &lt;&lt; output[1] &lt;&lt; output[0] &lt;&lt; endl;
+    }
+    return 0;
+}</pre>
+        </div>
+    </div>
+
+        <br>
+        <div class="big-divider"></div>
+        <br>
+
+        <div class="ts-header is-heavy is-huge is-start-icon">
+            <i class="ts-icon is-hashtag-icon"></i>
+            <div id="part">UVA 10260 Soundex</div>
+        </div>
+    
+        <div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px pad-left-30px">
+            <div class="ts-list is-unordered">
+                <div class="ts-header is-big is-start-icon">
+                    <i class="ts-icon is-at-icon" style="font-size: 24px;"></i>
+                    <span>題目</span>
+                </div>
+            </div>
+    
+            <div class="ts-image is-centered is-covered mag-20px">
+                <img src="https://hackmd.io/_uploads/H19N6fxdT.png">
+                <div class="ts-text is-secondary is-end-aligned">擷取自:
+                    <a href="https://zerojudge.tw/ShowProblem?problemid=e641" target="_blank" class="ts-text is-undecorated is-external-link">
+                        https://zerojudge.tw/ShowProblem?problemid=e641
+                    </a>
+                </div>
+            </div>
+    
+            <div class="ts-divider pad-10px"></div>
+            <div class="ts-list is-unordered">
+                <div class="ts-header is-big is-start-icon">
+                    <i class="ts-icon is-at-icon" style="font-size: 24px;"></i>
+                    <span>解題方向</span>
+                </div>
+            </div>
+    
+            <div class="ts-text mag-20px">
+                這題要求依照編碼表，依序輸出測資的每個字元在該表中的值。<br>
+                主要有兩個重點：
+                <div class="ts-list is-ordered pad-left-20px">
+                    <span class="item">數個同編碼字，皆視為相同字</span>
+                    <span class="item">若同編碼字相鄰重複，需跳過</span>
+                </div>
+            </div>
+    
+            <div class="ts-divider pad-10px"></div>
+            <div class="ts-list is-unordered">
+                <div class="ts-header is-big is-start-icon">
+                    <i class="ts-icon is-at-icon" style="font-size: 24px;"></i>
+                    <span>程式碼</span>
+                </div>
+            </div>
+    
+            <span class="ts-text is-code mag-20px">
+                <i class="ts-icon is-python-icon pad-5px pad-right-10px"></i>
+                Python
+            </span>
+        <div class="mag-20px">
+<pre class="prettyprint linenums">
+# 建立用來找索引值(index)的表
+ind = ['#', 'BFPV', 'CGJKQSXZ', 'DT', 'L', 'MN', 'R']
+
+# 空字典(dict)，用來建立 Soundex 編碼表
+dit = {}
+
+# 取出每個字串，如：'BFPV'
+for string in ind:
+    # 再逐個取出字元：'B' 'F' 'P' 'V'
+    for chr in string:
+    # 取得 'BFPV' 後，搜尋在 ind 中的 index，並填充字典：
+    # {'B': '1', 'F': '1', 'P': '1', 'V': '1'}
+        dit[chr] = str(ind.index(string))
+
+# 多行輸入資料
+while 1:
+    try:
+        line = input()
+
+        string = ''  # 清空變數
+        visit  = ''  # 儲存造訪過的字元
+
+        # 取出輸入字串的每個字元
+        for chr in line:
+            # 確認輸入字元有在字典內
+            if chr in dit:
+                # 避開相連的編碼值
+                # 比較字典內「當前字元的編碼值」是否相等「上次的編碼值」
+                # 作為保險，要先確認「上次的編碼值」是否有在字典內
+                if (visit in dit) and (dit[chr] == dit[visit]):
+                    continue
+
+                # 儲存過濾之後剩下的編碼值
+                string += dit[chr]
+
+            # 更新造訪過的字元
+            visit = chr
+        print(string)
+    except EOFError: break</pre>
+        </div>
+    </div>
+</body>
+<!-- 內容注入尾 -->

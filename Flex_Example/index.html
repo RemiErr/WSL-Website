@@ -24,7 +24,12 @@
     <!-- PyScript -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
 
-    
+
+    <!-- Google Code Prettify：程式碼自動上色 -->
+    <!-- https://github.com/googlearchive/code-prettify -->
+    <!-- https://www.minwt.com/webdesign-dev/html/23259.html -->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
     <script src="script/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/flex.css">
@@ -34,6 +39,18 @@
         *{
             /* 切版 Debug 用 */
             /* border: 1px solid rgba(200, 15, 15, 0.5); */
+        }
+
+        /* Google Code Prettify：顯示行數 */
+        .prettyprint ol.linenums > li {
+            list-style-type: decimal;
+            padding-left:10px;
+            color: rgb(210, 210, 210);
+        }
+
+        .linenums {
+            font-size: 17px;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -64,9 +81,7 @@
                 <div class="divider"></div>
 
                 <div id="inner_part">
-                    <!-- <div class="item" onclick="setPos(0)">世界 啟動</div>
-                    <div class="item" onclick="setPos(400)">彩色電視機</div>
-                    <div class="item" onclick="setPos(770)">理 ♂ 哲 ♂ 學</div> -->
+                    <!-- 這裡會自動插入段落選項 -->
                 </div>
                 <!-- 當前文章段落 end -->
 
@@ -80,17 +95,19 @@
                 </div>
                 <div class="divider"></div>
 
-
+                <!-- TODO: 掃描目錄檔案自動變更子選單 -->
                 <div id="inner_sub">
-
                     <div class="flex has-sub">
-                        <div class="item" onclick="url('page/python.html')">Python：從入門到入土</div>
+                        <div class="item">Python：從入門到入土</div>
                         <div class="flex colnum sub">
-                            <div class="item">Hello World!</div>
-                            <div class="item">學會這招讓你愛上蛇蛇</div>
-                            <div class="item">掌握三大輸入法則</div>
-                            <div class="item">愛會消失對不對？</div>
-                            <div class="item">由愛生恨，蛇黑養成班</div>
+                            <div class="item" onclick="url('page/python.html')">🐍 新手上路</div>
+                            <div class="item" onclick="url('page/star.html')">🌟 CPE 題解</div>
+                            <div class="divider"></div>
+                            <div class="item" onclick="alert('📢 注意！\n\n\n感謝你的注意。')">💘 學會這招讓你愛上蛇蛇</div>
+                            <div class="item" onclick="alert('來自 PM 民的小故事：\n🐰💨    💔    🌸💦')">💔 愛會消失對不對？</div>
+                            <a class="item" href="https://www.nfa.gov.tw/pro/index.php?code=list&ids=825" target="_blank">
+                                💢 由愛生恨，蛇黑養成班
+                            </a>
                         </div>
                     </div>
 
@@ -103,6 +120,7 @@
                         </div>
                     </div>
 
+                    <div class="item" onclick="url('page/demo.html')">💻 Demo Page</div>
                 </div>
                 <!-- 其他文章 end -->
 
@@ -130,6 +148,7 @@
                 <!-- 內容注入點 -->
                 <script>
                     url('page/demo.html');
+                    // PR.prettyPrint();
                 </script>
                 <!-- 內容注入尾 -->
 
@@ -142,27 +161,25 @@
 
 
     <!-- Back to top begin -->
-    <div class="bk_top" onclick="setPos(0)">
+    <div class="bk_top" id="bk_top" onclick="setPos(0)">
         <i class="fa-regular fa-hand-point-up"></i>
     </div>
-    <!-- Back to top end -->
-
 
     <!-- JavaScript -->
     <script>
-    // let el = document.getElementById("inner_part");
-    // el.innerHTML = '<div class="item">INNER HTML</div>';
+        let text = $('inner_text')
+        let bktop = $('bk_top')
 
-    // el = document.getElementById("inner_sub");
-    // el.innerHTML = `<div class="flex has-sub">
-    //                 <div class="item">INNER SUB</div>
-    //                 <div class="flex colnum sub">
-    //                 <div class="item">⬇🔵　⬇🔵🔵　⬇↘➡🔴</div>
-    //                 <div class="item">如何當個快樂 DI 人？</div>
-    //                 </div>
-    //                 </div>`;
+        bktop.hide();
+        text.addEventListener('scroll', ()=>{
+            if (text.scrollTop > 200){
+                bktop.show();
+            } else {
+                bktop.hide();
+            }
+        });
     </script>
-
+    <!-- Back to top end -->
 
 
     <!-- PyScript -->
