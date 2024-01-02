@@ -87,6 +87,15 @@ function setMenuPart(){
     });
 }
 
+// 更新程式碼輸出訊息
+function chack(uva){
+    let input = $(uva+'_input');
+    let output = $(uva+'_output');
+
+    if (input.value == null || input.value == ""){
+        output.innerText = '📢 請輸入測資喔！';
+    }
+}
 
 
 // http://api.prototypejs.org/ajax/Ajax/Request/

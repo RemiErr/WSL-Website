@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flex Example</title>
-
-    <!-- Prototype JavaScript Framework -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.js" integrity="sha512-9Sxlz9DC2Z4SewnMV2jzeYr/N0psEmZRQAUk5cUpE3fLY2Ml32VsprA9PsKj+kT7OGUn+VZRstS+Z0bbtpH46g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Flexbook</title>
+    <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,14 +19,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
 
-    <!-- PyScript -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
-
-
     <!-- Google Code Prettify：程式碼自動上色 -->
     <!-- https://github.com/googlearchive/code-prettify -->
     <!-- https://www.minwt.com/webdesign-dev/html/23259.html -->
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=desert"></script>
+
+    <!-- Prototype JavaScript Framework -->
+    <!-- http://prototypejs.org -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.js" integrity="sha512-9Sxlz9DC2Z4SewnMV2jzeYr/N0psEmZRQAUk5cUpE3fLY2Ml32VsprA9PsKj+kT7OGUn+VZRstS+Z0bbtpH46g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- PyScript alpha -->
+    <!-- https://pyscript.net -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.2/core.css">
+    <script type="module" src="https://pyscript.net/releases/2023.11.2/core.js"></script>
+
 
     <script src="script/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -52,6 +56,12 @@
             font-size: 17px;
             border-radius: 8px;
         }
+
+        /* Hide: Pyscript loading message */
+        #pyscript_loading_splash{
+            width: 0;
+            height: 0;
+        }
     </style>
 </head>
 
@@ -70,6 +80,44 @@
         <!-- 選項 -->
         <div class="flex1 menu-list">
             <div class="ts-menu">
+
+                <!-- 其他文章 begin -->
+                <div>
+                    <i class="ts-icon is-spaced is-book-icon"></i> 
+                    <span>文章</span>
+                </div>
+                <div class="divider"></div>
+
+                <!-- TODO: 掃描目錄檔案自動變更子選單 -->
+                <div id="inner_sub">
+                    <div class="flex has-sub">
+                        <div class="item">🐍 Python：從入門到入土</div>
+                        <div class="flex colnum sub">
+                            <div class="item" onclick="url('page/python.html')">🐍 新手上路</div>
+                            <div class="item" onclick="url('page/star.html')">🌟 CPE 題解</div>
+                            <div class="divider"></div>
+                            <div class="item" onclick="alert('📢 注意！\n\n\n感謝你的注意。')">💘 學會這招讓你愛上蛇蛇</div>
+                            <div class="item" onclick="alert('來自 PM 民的小故事：\n🐰💨    💔    🌸💦')">💔 愛會消失對不對？</div>
+                            <a class="item" href="https://www.nfa.gov.tw/pro/index.php?code=list&ids=825" target="_blank">
+                                💢 由愛生恨，蛇黑養成班
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="flex has-sub">
+                        <div class="item">快打 C++：現代模式</div>
+                        <div class="flex colnum sub">
+                            <div class="item">⬇🔵　⬇🔵🔵　⬇↘➡🔴</div>
+                            <div class="item">如何當個快樂 DI 人？</div>
+                            <div class="item">Library 123，立回好簡單！</div>
+                        </div>
+                    </div> -->
+
+                    <div class="item" onclick="url('page/iframe.html')">🎮 PyScript demos</div>
+                    <div class="item" onclick="url('page/demo.html')">💻 Demo page</div>
+                </div>
+                <!-- 其他文章 end -->
+
                 <!-- Space -->
                 <div class="u-spaced"></div>
 
@@ -84,46 +132,6 @@
                     <!-- 這裡會自動插入段落選項 -->
                 </div>
                 <!-- 當前文章段落 end -->
-
-                <!-- Space -->
-                <div class="u-spaced"></div>
-
-                <!-- 其他文章 begin -->
-                <div>
-                    <i class="ts-icon is-spaced is-book-icon"></i> 
-                    <span>文章</span>
-                </div>
-                <div class="divider"></div>
-
-                <!-- TODO: 掃描目錄檔案自動變更子選單 -->
-                <div id="inner_sub">
-                    <div class="flex has-sub">
-                        <div class="item">Python：從入門到入土</div>
-                        <div class="flex colnum sub">
-                            <div class="item" onclick="url('page/python.html')">🐍 新手上路</div>
-                            <div class="item" onclick="url('page/star.html')">🌟 CPE 題解</div>
-                            <div class="divider"></div>
-                            <div class="item" onclick="alert('📢 注意！\n\n\n感謝你的注意。')">💘 學會這招讓你愛上蛇蛇</div>
-                            <div class="item" onclick="alert('來自 PM 民的小故事：\n🐰💨    💔    🌸💦')">💔 愛會消失對不對？</div>
-                            <a class="item" href="https://www.nfa.gov.tw/pro/index.php?code=list&ids=825" target="_blank">
-                                💢 由愛生恨，蛇黑養成班
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="flex has-sub">
-                        <div class="item">快打 C++：現代模式</div>
-                        <div class="flex colnum sub">
-                            <div class="item">⬇🔵　⬇🔵🔵　⬇↘➡🔴</div>
-                            <div class="item">如何當個快樂 DI 人？</div>
-                            <div class="item">Library 123，立回好簡單！</div>
-                        </div>
-                    </div>
-
-                    <div class="item" onclick="url('page/demo.html')">💻 Demo Page</div>
-                </div>
-                <!-- 其他文章 end -->
-
 
             </div>
         </div>
@@ -147,12 +155,10 @@
 
                 <!-- 內容注入點 -->
                 <script>
-                    url('page/demo.html');
-                    // PR.prettyPrint();
+                    url('page/iframe.html');
                 </script>
                 <!-- 內容注入尾 -->
 
-                
             </div>
 
         </div>
@@ -178,11 +184,9 @@
                 bktop.hide();
             }
         });
+
     </script>
     <!-- Back to top end -->
 
-
-    <!-- PyScript -->
-    <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
 </body>
 </html>
