@@ -77,7 +77,7 @@
   transition: all 0.5s;
 }
 .nav-box .item:hover {
-  background-color: #1a9973;
+  background-color: rgba(26, 153, 115, 0.6);
 }
 
 #menu:checked ~ .nav-box, #menu:checked ~ .nav-box::after, #menu:checked ~ .nav-box .menu-list {

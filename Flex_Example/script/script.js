@@ -44,12 +44,13 @@ function setPos(part){
 function url(path){
     urlf = path;
 
-    setTitle();
-    setContent();
-    setMenuPart();
-    // 延遲觸發 Google 語法著色器
-    setTimeout(PR.prettyPrint, 800);
-    setTimeout(setPos(0), 850);
+    // 延遲讀取資料，先將網頁至頂
+    setPos(0)
+    setTimeout(()=>{
+        setTitle();
+        setContent();
+        setMenuPart();
+    }, 350);
 }
 
 // 更改頂部標題
@@ -71,6 +72,8 @@ function setContent(){
         });
 
         $('inner_text').innerHTML = doc.getElementById('body').innerHTML;
+        // Google 語法著色器
+        PR.prettyPrint();
     });
 }
 
