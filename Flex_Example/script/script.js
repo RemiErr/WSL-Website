@@ -50,7 +50,7 @@ function url(path){
         setTitle();
         setContent();
         setMenuPart();
-    }, 350);
+    }, 60);
 }
 
 // 更改頂部標題
