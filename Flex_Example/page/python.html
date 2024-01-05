@@ -270,5 +270,103 @@ str = f"Show 'string'."</pre>
     </div>
 </div>
 
+<div class="ts-header is-heavy is-huge is-start-icon">
+    <i class="ts-icon is-hashtag-icon"></i>
+    <div id="part">for 迴圈</div>
+</div>
+
+<div class="ts-text mag-20px">
+    在 Python 中，只有 Foreach 的用法，每次迴圈都會從字串或陣列等物件迭代其值，舉個例子：
+</div>
+
+<div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
+    <div class="mag-20px">
+<pre class="prettyprint linenums">
+# 陣列(串列)
+arr = ['a', 'b', 'c']
+# 字串
+str = 'def'
+
+# 逐個顯示陣列元素
+for i in arr:
+    print(i, end=' ')
+
+# 逐個顯示字串字元
+for j in str:
+    print(j, end=' ')</pre>
+    </div>
+    <div class="ts-text is-secondary mag-20px">
+        <span class="ts-text is-key">💻 Output:</span>
+        a b c d e f 
+    </div>
+</div>
+
+
+<div class="ts-text mag-20px">
+    在這邊介紹一個關於陣列的語法糖 <span class="ts-text is-secondary is-small">(實際上是串列，但口語上我還是習慣叫陣列)</span>
+</div>
+
+<div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
+    <div class="mag-20px">
+<pre class="prettyprint linenums">
+# list 會生成一個陣列(串列)
+# range 會生成多個數
+
+# 一般方式
+arr = list(range(3))
+# 語法糖
+arr2 = [n for n in range(5)]</pre>
+    </div>
+    <div class="ts-text is-secondary mag-20px">
+        <span class="ts-text is-key">🔍 Result:</span>
+        <div class="ts-text pad-left-20px">
+            arr = [0, 1, 2]<br>
+            arr2 = [0, 1, 2, 3, 4]
+        </div>
+    </div>
+    <div class="ts-text mag-20px">
+        是的，for 迴圈可以被放入陣列宣告的語法中，若是配合其他語法糖<span class="ts-text is-secondary is-small">(三元運算子)</span>，還可以做到篩選元素的效果。
+    </div>
+</div>
+
+<div class="ts-text mag-20px">
+    當需要一個執行 n 次的迴圈時，就需要用到上面提到的 range 來配合 for 迴圈使用：
+</div>
+
+<div class="ts-segment is-elevated is-warning is-bottom-indicated mag-20px">
+    <div class="mag-20px">
+<pre class="prettyprint linenums">
+n = 3
+for i in range(n):
+    # do something...</pre>
+    </div>
+</div>
+
+<div class="ts-text mag-20px">
+    如果我有一個字串，要如何知道它們的 index？
+</div>
+
+<div class="ts-segment is-elevated is-primary is-bottom-indicated mag-20px">
+    <div class="mag-20px">
+<pre class="prettyprint linenums">
+str = 'abcdef'
+
+# enumerate 會向每個元素新增索引值(index)
+for i, s in enumerate(str):
+    print(f'index: {i}, char: {s}.')</pre>
+    </div>
+    <div class="ts-text is-secondary mag-20px">
+        <span class="ts-text is-key">💻 Output:</span>
+        <div class="ts-text pad-left-20px">
+            index: 0, char: a.<br>
+            index: 1, char: b.<br>
+            index: 2, char: c.<br>
+            index: 3, char: d.<br>
+            index: 4, char: e.<br>
+            index: 5, char: f.
+        </div>
+    </div>
+</div>
+
 </body>
 <!-- 內容注入尾 -->
